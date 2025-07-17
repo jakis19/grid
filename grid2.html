@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+
+    <style>
+
+       /* Estilização geral para o elemento <body> */
+body {
+    /* Remove as margens padrão do corpo da página */
+    margin: 0;
+    /* Remove o espaçamento interno padrão do corpo da página */
+    padding: 0;
+    /* Define o box-sizing para incluir bordas e padding dentro do tamanho total dos elementos */
+    box-sizing: border-box;
+}
+
+/* Classe para o container principal */
+.gridContainer {
+    /* Define a largura como a largura total da janela, ajustando para evitar a barra de rolagem */
+    width: calc(100vw - 1px);
+    /* Define a altura como a altura total da janela */
+    height: 100vh;
+    /* Define a cor de fundo do container como cinza */
+    background: #ccc;
+    /* Adiciona um padding (espaçamento interno) de 2px ao container */
+    padding: 2px;
+    /* Garante que o box-sizing seja aplicado ao padding e bordas */
+    box-sizing: border-box;
+}
+
+/* Estilos para os itens dentro do grid */
+.gridItem {
+    /* Define a cor de fundo como laranja */
+    background-color: orange;
+    /* Define um espaçamento interno (padding) de 15px */
+    padding: 15px;
+    /* Define a fonte como sans-serif */
+    font-family: sans-serif;
+}
+
+/* ---------------- GRID ---------------- */
+
+/* Configura o grid layout para o container */
+.gridContainer {
+    /* Define o layout como grid */
+    display: grid;
+    /* Cria 3 colunas de largura igual (1fr) */
+    grid-template-columns: repeat(3, 1fr);
+    /* Define 4 linhas: 75px, 50px, 1fr (flexível), e 50px */
+    grid-template-rows: 75px 50px 1fr 50px;
+    /* Define o espaçamento entre os elementos da grid como 1em */
+    gap: 1em;
+}
+
+/* Estilização para o cabeçalho (header) */
+.header {
+    /* Faz o cabeçalho ocupar toda a largura (coluna 1 até o final) */
+    grid-column: 1 / -1;
+    /* Coloca o cabeçalho na primeira linha */
+    grid-row: 1;
+}
+
+/* Estilização para a barra de navegação (nav) */
+.nav {
+    /* Faz a navegação ocupar da terceira coluna até a última */
+    grid-column: 3 / -1;
+    /* Coloca a barra de navegação na primeira linha */
+    grid-row: 1;
+    /* Define uma cor de fundo semitransparente verde */
+    background-color: rgba(17, 167, 17, 0.199);
+    /* Adiciona um espaçamento superior de 10px */
+    margin-top: 10px;
+    /* Adiciona um espaçamento inferior de 10px */
+    margin-bottom: 10px;
+}
+
+/* Estilização para a barra lateral (aside) */
+.aside {
+    /* Faz a barra lateral ocupar da segunda linha até a penúltima */
+    grid-row: 2 / -2;
+    /* Faz a barra lateral ocupar a segunda e terceira coluna */
+    grid-column: 3 / 4;
+}
+
+/* Estilização para o conteúdo principal (main) */
+.main {
+    /* Faz o conteúdo principal ocupar da primeira coluna até a segunda */
+    grid-column: 1 / 3;
+    /* Faz o conteúdo principal ocupar da segunda linha e se expandir por mais uma linha */
+    grid-row: 2 / span 2;
+}
+
+/* Estilização para o rodapé (footer) */
+.footer {
+    /* Faz o rodapé ocupar toda a largura (coluna 1 até o final) */
+    grid-column: 1 / -1;
+    /* Define uma cor de fundo semitransparente preta */
+    background-color: rgb(0 0 0 / .5);
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="gridContainer">
+        <header class="header gridItem">header</header>
+        <nav class="nav gridItem">nav</nav>
+        <aside class="aside gridItem">aside</aside>
+        <main class="main gridItem">
+            main
+        </main>
+        <footer class="footer gridItem">footer</footer>
+    </div>
+</body>
+
+</html>
